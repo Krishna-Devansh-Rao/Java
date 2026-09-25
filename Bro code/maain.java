@@ -1,32 +1,20 @@
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
 
-public class maain{
+class Dog extends Animal {
+
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+
     public static void main(String[] args) {
 
-//Baiscs
-// System.out.println("Hello World\t krr");
-// System.out.println("\"Hello World \"");
-// System.out.println("\\Hello World \\");
+        Dog d = new Dog();
 
-//Variables
-// int x;
-// x= 18;
-// String y = "Virat Kohli";
-// System.out.println(x);
-// System.out.println("The Jersy no of "+y + " is " + x);
-        
-
-//Swap Two num
-// String x = "Water";
-// String y = "Oil";
-// String temp;
-// temp =x;
-// x = y;
-// y = temp;
-// System.out.println(x);
-// System.out.println(y);
-
-
-
-
-}
+        d.eat();
+        d.bark();
+    }
 }
