@@ -439,9 +439,119 @@ import java.util.Random;
     //     }
 // }
 
+//Banking Porgram 
+import java.util.Scanner;
+public class main {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        double balance = 0;
+        boolean isRunning = true;
+        int choise;
+
+        while (isRunning) {
+
+            System.out.println("**********************************");
+            System.out.println("\tBanking Program");
+            System.out.println("**********************************");
+            System.out.println("1. Show Balance");
+            System.out.println("2. Deposit Money");
+            System.out.println("3. Withdraw Money");
+            System.out.println("4. Exit");
+            System.out.println("**********************************");
+            System.out.print("Enter Your Choice (1-4): ");
+
+            choise = input.nextInt();
+
+            switch (choise) {
+
+                case 1:
+                    System.out.println("**********************************");
+                    Showbalance(balance);
+                    break;
+
+                case 2:
+                    System.out.println("**********************************");
+                    balance = deposit(balance, input);
+                    break;
+
+                case 3:
+                    System.out.println("**********************************");
+                    balance = withdraw(balance, input);
+                    break;
+
+                case 4:
+                    isRunning = false;
+                    System.out.println("Thank you for using our Banking Program!");
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice");
+            }
+
+            System.out.println();
+        }
+
+        input.close();
+    }
 
 
+    // Show Balance
+    static void Showbalance(double balance) {
+
+        System.out.println("Current Balance: $" + balance);
+    }
 
 
+    // Deposit Money
+    static double deposit(double balance, Scanner input) {
+
+        System.out.print("Enter an amount to be deposited: ");
+
+        double amount = input.nextDouble();
+
+        if (amount < 0) {
+
+            System.out.println("Amount can't be negative");
+            return balance;
+        }
+
+        balance += amount;
+
+        System.out.println("Amount deposited successfully!");
+        System.out.println("Deposited Amount: $" + amount);
+        System.out.println("New Balance: $" + balance);
+
+        return balance;
+    }
+
+
+static double withdraw(double balance, Scanner input) {
+
+    System.out.print("Enter an amount to withdraw: ");
+
+    double amount = input.nextDouble();
+
+    if (amount < 0) {
+        System.out.println("Amount can't be negative");
+        return balance;
+    }
+
+    if (amount > balance) {
+        System.out.println("Insufficient Funds");
+        return balance;
+    }
+
+    balance -= amount;
+
+    System.out.println("Amount withdrawn successfully!");
+    System.out.println("Withdrawn Amount: $" + amount);
+    System.out.println("Remaining Balance: $" + balance);
+
+    return balance;
+}
+}
 
 
